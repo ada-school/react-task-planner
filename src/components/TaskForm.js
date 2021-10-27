@@ -13,7 +13,16 @@ export const TaskForm = () => {
   if (!task) {
     return <div>Task not found</div>;
   }
-
+  const handleChangeCheckbox = (task) => {
+    //task.isCompleted = !task.isCompleted;
+    //const completed= task.isCompleted
+    let newdata= data.tasks
+    //console.log(data)
+    let modifiedData=newdata.map((item)=>{
+      return (item.id === taskId)? {...item,isCompleted:!item.isCompleted}: item;
+    })
+    setData(()=>({...data,tasks: modifiedData}))
+  }
   const handleChange = (e) => {
     const inputName = e.target.value;
 
@@ -42,7 +51,7 @@ export const TaskForm = () => {
         value={text}
         onChange={handleChange}
       />
-      <input type="checkbox" checked={task.isCompleted} />
+      <input type="checkbox" checked={task.isCompleted} onChange={()=>handleChangeCheckbox(task)} />
 
       <button type="button" onClick={handleSave}>
         Save
