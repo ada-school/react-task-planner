@@ -1,0 +1,15 @@
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+.todo-color{
+  color: #61dafb;
+}
+.in-progress-color{
+  color: darkorange;
+}
+.review-color{
+  color: yellow;
+}
+.done-color{
+  color: lawngreen;
+}
